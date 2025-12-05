@@ -4,12 +4,20 @@ document.getElementById('year').textContent = new Date().getFullYear();
 document.addEventListener("DOMContentLoaded", async () => {
   const info = await fetchCompanyInfo();
 
-  // ================= BRAND =================
-  document.title = info.title || info.name;
+  // ================= BRAND & SEO =================
+  const siteTitle = info.title || `${info.name} - Play Free Online Games | 1000+ Browser Games`;
+  document.title = siteTitle;
+  
+  // Update meta description dynamically
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && info.description) {
+    metaDesc.setAttribute("content", info.description);
+  }
+  
   document.querySelectorAll(".company-name").forEach(el => el.textContent = info.name);
   document.querySelectorAll(".company-owner").forEach(el => el.textContent = info.company);
   document.querySelectorAll(".company-logo").forEach(c => {
-    c.innerHTML = `<img src="${info.logo}" alt="${info.name}" class="logo-img">`;
+    c.innerHTML = `<img src="${info.logo}" alt="${info.name} Logo - Free Online Games Portal" class="logo-img">`;
   });
 
   // Favicon
@@ -38,9 +46,21 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ================= GAMES =================
   const games = await fetchGames(info.apis?.games);
-  const mainContainer = document.getElementById("games").querySelector(".games-container"); // main games container
-  mainContainer.innerHTML = "";
-  games.forEach(game => mainContainer.appendChild(createGameCard(game)));
+  const mainContainer = document.getElementById("games").querySelector(".games-container");
+  
+  // Show loading state
+  mainContainer.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);">Loading games...</div>';
+  
+  // Add games with animation
+  setTimeout(() => {
+    mainContainer.innerHTML = "";
+    games.forEach((game, index) => {
+      const card = createGameCard(game);
+      // Stagger animation for visual appeal
+      card.style.animationDelay = `${index * 0.03}s`;
+      mainContainer.appendChild(card);
+    });
+  }, 100);
 
   // ================= RECENTLY PLAYED =================
   renderRecentlyPlayed(); // fills #recent-container
@@ -48,7 +68,22 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ================= SEARCH =================
   const searchInput = document.getElementById("gameSearch");
-  searchInput?.addEventListener("input", () => filterGames(searchInput.value));
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      filterGames(e.target.value);
+    });
+    
+    // Add enter key support
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const firstCard = document.querySelector(".game-card[style*='block'], .game-card:not([style*='none'])");
+        if (firstCard) {
+          firstCard.click();
+        }
+      }
+    });
+  }
 
 });
 
@@ -56,18 +91,40 @@ document.addEventListener("DOMContentLoaded", async () => {
 function createGameCard(game) {
   const card = document.createElement("div");
   card.className = "game-card";
+  card.setAttribute("role", "listitem");
+  card.setAttribute("aria-label", `Play ${game.title}`);
+  
+  // SEO-friendly alt text with keywords
+  const altText = `${game.title} - Free Online Game - Play Now on DPgames`;
+  
   card.innerHTML = `
-    <img src="${game.thumbnail}" alt="${game.title}" loading="lazy">
+    <img src="${game.thumbnail}" alt="${altText}" loading="lazy" onerror="this.src='assets/logo.png'" title="${game.title}">
     <h4>${game.title}</h4>
   `;
-  // card.addEventListener("click", () => window.location.href = game.page);
-
-//testing
+  
+  // Add click handler with smooth transition
   card.addEventListener("click", () => {
     addToRecentlyPlayed(game);
-    window.location.href = game.page;
+    // Add a subtle animation before navigation
+    card.style.transform = "scale(0.95)";
+    setTimeout(() => {
+      window.location.href = game.page;
+    }, 150);
   });
 
+  // Keyboard accessibility
+  card.setAttribute("tabindex", "0");
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      card.click();
+    }
+  });
+
+  // Add hover effect
+  card.addEventListener("mouseenter", () => {
+    card.style.transition = "all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+  });
 
   return card;
 }
@@ -75,16 +132,59 @@ function createGameCard(game) {
 // ================= SEARCH FILTER =================
 function filterGames(query) {
   query = query.trim().toLowerCase();
-  document.querySelectorAll(".game-card").forEach(card => {
+  let visibleCount = 0;
+  
+  document.querySelectorAll(".game-card").forEach((card, index) => {
     const title = card.querySelector("h4").textContent.toLowerCase();
-    // Show cards that include the search query anywhere in the title
-    card.style.display = (query === "" || title.includes(query)) ? "block" : "none";
+    const isVisible = query === "" || title.includes(query);
+    
+    if (isVisible) {
+      card.style.display = "block";
+      // Add staggered animation
+      card.style.animationDelay = `${visibleCount * 0.05}s`;
+      card.style.opacity = "1";
+      visibleCount++;
+    } else {
+      card.style.opacity = "0";
+      card.style.transform = "scale(0.8)";
+      setTimeout(() => {
+        card.style.display = "none";
+      }, 300);
+    }
   });
+  
+  // Show "no results" message if needed
+  const gamesSection = document.getElementById("games");
+  let noResultsMsg = document.getElementById("no-results");
+  
+  if (query && visibleCount === 0) {
+    if (!noResultsMsg) {
+      noResultsMsg = document.createElement("p");
+      noResultsMsg.id = "no-results";
+      noResultsMsg.style.textAlign = "center";
+      noResultsMsg.style.color = "var(--text-muted)";
+      noResultsMsg.style.padding = "2rem";
+      noResultsMsg.style.fontSize = "1.2rem";
+      gamesSection.appendChild(noResultsMsg);
+    }
+    noResultsMsg.textContent = `No games found matching "${query}"`;
+  } else if (noResultsMsg) {
+    noResultsMsg.remove();
+  }
 }
 
 // ================= TOGGLE SEARCH (Mobile) =================
 function toggleSearch() {
-  document.querySelector(".search-bar").classList.toggle("active");
+  const searchBar = document.querySelector(".search-bar");
+  searchBar.classList.toggle("active");
+  
+  // Focus on input when opened
+  if (searchBar.classList.contains("active")) {
+    setTimeout(() => {
+      const input = document.getElementById("gameSearch");
+      if (input) input.focus();
+    }, 100);
+  }
 }
 
 // Testing
@@ -108,7 +208,7 @@ function addToRecentlyPlayed(game) {
 function renderRecentlyPlayed() {
   const key = "recentlyPlayedGames";
   const section = document.getElementById("recently-played");
-  const container = document.getElementById("recent-container"); // ✅ target only recently played
+  const container = document.getElementById("recent-container");
   const stored = JSON.parse(localStorage.getItem(key));
 
   // Hide section if no data or first-time user
@@ -120,17 +220,10 @@ function renderRecentlyPlayed() {
   section.style.display = "block";
   container.innerHTML = "";
 
-  stored.forEach(game => {
-    const card = document.createElement("div");
-    card.className = "game-card";
-    card.innerHTML = `
-      <img src="${game.thumbnail}" alt="${game.title}" loading="lazy">
-      <h4>${game.title}</h4>
-    `;
-    card.addEventListener("click", () => {
-      addToRecentlyPlayed(game);
-      window.location.href = game.page;
-    });
+  stored.forEach((game, index) => {
+    const card = createGameCard(game);
+    // Add staggered animation for recently played
+    card.style.animationDelay = `${index * 0.1}s`;
     container.appendChild(card);
   });
 }
