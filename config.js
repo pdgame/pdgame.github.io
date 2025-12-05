@@ -6,7 +6,7 @@ window.RELATED_GAMES_API = "https://api.npoint.io/e24cdd5120b7643095ac";
 window.MORE_GAMES_COUNT = 12; // change this to any number of random games
 
 // ================= CONFIG / API CALLS =================
-const apiUrl = "https://api.npoint.io/ecf6de08a8afb805eaff";
+const apiUrl = "https://api.npoint.io/6941a64d294b10b34ee4";
 let companyInfo = {};
 
 // Fetch company + games data
