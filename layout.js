@@ -4,8 +4,8 @@ async function loadLayout() {
   try {
     // Load header and footer
     const [headerHTML, footerHTML] = await Promise.all([
-      fetch('https://DPgames.github.io/DPgames/header.html').then(r => r.text()),
-      fetch('https://DPgames.github.io/DPgames/footer.html').then(r => r.text())
+      fetch('https://pdgame.github.io/pdgames/header.html').then(r => r.text()),
+      fetch('https://pdgame.github.io/pdgames/footer.html').then(r => r.text())
     ]);
 
     // Insert into page

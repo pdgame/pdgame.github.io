@@ -352,7 +352,7 @@ globalThis.WebSdkWrapper = (function () {
 	  get sdk() {
 		return globalThis.PokiSDK;
 	  },
-	  scriptSrc: "https://DPgames.github.io/DPgames/DPgames-sdk.js",
+	  scriptSrc: "https://pdgame.github.io/pdgames/DPgames-sdk.js",
 	  hasAds: true,
 	  hasBanner: false,
 	  enableOnlyInProduction: false,

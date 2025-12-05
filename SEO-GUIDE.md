@@ -1,4 +1,4 @@
-# 🚀 DPgames SEO & Design Optimization Guide
+# 🚀 PDgames SEO & Design Optimization Guide
 
 ## 🎨 New Design Features
 
@@ -115,7 +115,7 @@
    Google Search Console: https://search.google.com/search-console
    Bing Webmaster Tools: https://www.bing.com/webmasters
    ```
-   Submit: `https://dpgames.github.io/DPgames/sitemap.xml`
+   Submit: `https://pdgame.github.io/pdgames/sitemap.xml`
 
 2. **Verify Ownership**
    - Keep `google321a894edcce8431.html` file
@@ -339,5 +339,5 @@ Your site is now optimized with:
 ---
 
 *Last Updated: December 5, 2025*
-*DPgames - Play Free Online Games*
+*PDgames - Play Free Online Games*
 

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const info = await fetchCompanyInfo();
 
   // ================= BRAND & SEO =================
-  const siteTitle = info.title || `${info.name} - Play Free Online Games | 1000+ Browser Games`;
+  const siteTitle = info.title || `${info.name || 'PDgames'} - Play Free Online Games | 1000+ Browser Games`;
   document.title = siteTitle;
   
   // Update meta description dynamically
@@ -14,10 +14,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     metaDesc.setAttribute("content", info.description);
   }
   
-  document.querySelectorAll(".company-name").forEach(el => el.textContent = info.name);
-  document.querySelectorAll(".company-owner").forEach(el => el.textContent = info.company);
+  const companyName = info.name || 'PDgames';
+  document.querySelectorAll(".company-name").forEach(el => el.textContent = companyName);
+  document.querySelectorAll(".company-owner").forEach(el => el.textContent = info.company || companyName);
+  document.querySelectorAll(".website-name").forEach(el => el.textContent = companyName);
   document.querySelectorAll(".company-logo").forEach(c => {
-    c.innerHTML = `<img src="${info.logo}" alt="${info.name} Logo - Free Online Games Portal" class="logo-img">`;
+    c.innerHTML = `<img src="${info.logo}" alt="${companyName} Logo - Free Online Games Portal" class="logo-img">`;
   });
 
   // Favicon
@@ -95,7 +97,7 @@ function createGameCard(game) {
   card.setAttribute("aria-label", `Play ${game.title}`);
   
   // SEO-friendly alt text with keywords
-  const altText = `${game.title} - Free Online Game - Play Now on DPgames`;
+  const altText = `${game.title} - Free Online Game - Play Now on PDgames`;
   
   card.innerHTML = `
     <img src="${game.thumbnail}" alt="${altText}" loading="lazy" onerror="this.src='assets/logo.png'" title="${game.title}">

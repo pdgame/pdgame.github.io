@@ -25,7 +25,7 @@ if (!window.config.unityWebglLoaderUrl) {
     // }
 }
 var sdkScript = document.createElement("script");
-sdkScript.src = "https://DPgames.github.io/DPgames/DPgames-sdk.js", sdkScript.onload = function() {
+sdkScript.src = "https://pdgame.github.io/pdgames/DPgames-sdk.js", sdkScript.onload = function() {
     var i = document.createElement("script");
     i.src = root + loader, document.body.appendChild(i)
 }, document.body.appendChild(sdkScript);

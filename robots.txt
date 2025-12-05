@@ -1,4 +1,4 @@
-# DPgames - Free Online Games
+# PDgames - Free Online Games
 # robots.txt
 
 User-agent: *
@@ -13,7 +13,7 @@ Disallow: /config.js
 Disallow: /*.json
 
 # Sitemap location
-Sitemap: https://dpgames.github.io/DPgames/sitemap.xml
+Sitemap: https://pdgame.github.io/pdgames/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
