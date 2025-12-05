@@ -115,7 +115,7 @@
    Google Search Console: https://search.google.com/search-console
    Bing Webmaster Tools: https://www.bing.com/webmasters
    ```
-   Submit: `https://pdgame.github.io/pdgames/sitemap.xml`
+   Submit: `https://pdgame.github.io/sitemap.xml`
 
 2. **Verify Ownership**
    - Keep `google321a894edcce8431.html` file

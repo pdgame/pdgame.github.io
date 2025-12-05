@@ -6,7 +6,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://pdgame.github.io/pdgames/</loc>
+    <loc>https://pdgame.github.io/</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- About Page -->
   <url>
-    <loc>https://pdgame.github.io/pdgames/about.html</loc>
+    <loc>https://pdgame.github.io/about.html</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
   <!-- Contact Page -->
   <url>
-    <loc>https://pdgame.github.io/pdgames/contact.html</loc>
+    <loc>https://pdgame.github.io/contact.html</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -30,7 +30,7 @@
 
   <!-- Privacy Policy -->
   <url>
-    <loc>https://pdgame.github.io/pdgames/privacypolicy.html</loc>
+    <loc>https://pdgame.github.io/privacypolicy.html</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -38,63 +38,63 @@
 
   <!-- Popular Games -->
   <url>
-    <loc>https://pdgame.github.io/pdgames/G/subway-surfers-tokyo/</loc>
+    <loc>https://pdgame.github.io/G/subway-surfers-tokyo/</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://pdgame.github.io/pdgames/G/temple-run/</loc>
+    <loc>https://pdgame.github.io/G/temple-run/</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://pdgame.github.io/pdgames/G/2048/</loc>
+    <loc>https://pdgame.github.io/G/2048/</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://pdgame.github.io/pdgames/G/chess/setup.html</loc>
+    <loc>https://pdgame.github.io/G/chess/setup.html</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://pdgame.github.io/pdgames/G/ovo/</loc>
+    <loc>https://pdgame.github.io/G/ovo/</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://pdgame.github.io/pdgames/G/tunnel-rush/</loc>
+    <loc>https://pdgame.github.io/G/tunnel-rush/</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://pdgame.github.io/pdgames/G/slither.io/home.html</loc>
+    <loc>https://pdgame.github.io/G/slither.io/home.html</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://pdgame.github.io/pdgames/G/there-is-no-game/</loc>
+    <loc>https://pdgame.github.io/G/there-is-no-game/</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://pdgame.github.io/pdgames/G/the-impossible-quiz/</loc>
+    <loc>https://pdgame.github.io/G/the-impossible-quiz/</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
