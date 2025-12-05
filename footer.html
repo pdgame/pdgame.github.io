@@ -1,47 +1,56 @@
 <footer class="site-footer">
-  <div class="footer-container">
-    <div class="footer-left">
-      <div class="brand">
-        <!-- <div class="company-logo"> -->
+  <div class="footer-wrapper">
+    <div class="footer-container">
+      <!-- Left Section -->
+      <div class="footer-left">
+        <div class="footer-brand">
+          <div class="brand-logo-wrapper">
+            <img src="favicon.svg" alt="PDgames Logo" class="footer-logo">
+          </div>
+          <h2 class="footer-brand-name">PDgames</h2>
         </div>
-        <h2 class="company-name">PDgames</h2>
+        <p class="footer-tagline">Your Ultimate Gaming Destination</p>
+        <p class="dev-company">Developed with ❤️ by <strong>PDgames</strong></p>
       </div>
-      <p class="dev-company">Developed by <span class="company-owner">PDgames</span></p>
 
-      <div class="footer-socials">
-        <a href="https://x.com/playgamesPDgames" target="_blank" rel="noopener">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="twitter" class="social-icon">
-        </a>
-        <!-- <a href="https://www.facebook.com/profile.php?id=61578623747029" target="_blank" rel="noopener">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="facebook" class="social-icon">
-        </a> -->
-        <!-- <a href="https://linkedin.com/company/PDgamesinfotech" target="_blank" rel="noopener">
-          <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="linkedin" class="social-icon">
-        </a> -->
-        <a href="https://instagram.com/PDgames.games" target="_blank" rel="noopener">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="instagram" class="social-icon">
-        </a>
+      <!-- Right Section -->
+      <div class="footer-right">
+        <div class="footer-column">
+          <h4>Get To Know Us</h4>
+          <nav class="footer-nav">
+            <a href="about.html" aria-label="About PDgames">📖 About</a>
+          </nav>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Privacy & Terms</h4>
+          <nav class="footer-nav">
+            <a href="privacypolicy.html" aria-label="Privacy Policy">🔒 Privacy Center</a>
+          </nav>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Help & Support</h4>
+          <nav class="footer-nav">
+            <a href="contact.html" aria-label="Contact Us">✉️ Contact Us</a>
+          </nav>
+        </div>
       </div>
     </div>
 
-    <div class="footer-right">
-      <div class="footer-column">
-        <h4>Get To Know Us</h4>
-        <a href="/PDgames/about.html">About</a>
-      </div>
-      <div class="footer-column">
-        <h4>Privacy and Terms</h4>
-        <a href="/PDgames/privacypolicy.html">Privacy Center</a>
-      </div>
-      <div class="footer-column">
-        <h4>Help and Support</h4>
-        <a href="/PDgames/contact.html">Contact US</a>
-      </div>
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; <span id="year">2025</span> <strong>PDgames</strong>. All rights reserved.
+      </p>
+      <p class="powered-by">
+        Powered by <strong class="brand-highlight">PDgames</strong> | Made for Gamers 🎮
+      </p>
     </div>
   </div>
-
-  <p class="footer-bottom">
-    &copy; <span id="year">2025</span> PDgames. All rights reserved. <br>
-    Powered by <strong>PDgames</strong>
-  </p>
 </footer>
+
+<script>
+  // Auto-update year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>

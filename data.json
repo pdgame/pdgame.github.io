@@ -17,11 +17,5 @@
   "address": "Gujarat, India",
   "company": "PDgames",
   "favicon": "assets/favicon.ico",
-  "socials": {
-    "twitter": "https://x.com/playgamesblink",
-    "facebook": "https://www.facebook.com/profile.php?id=61578623747029",
-    "linkedin": "https://linkedin.com/company/blinkinfotech",
-    "instagram": "https://instagram.com/blink.games"
-  },
   "contactFormAction": "https://formsubmit.co/PDgames@gmail.com"
 }
